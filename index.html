@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheet Auth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+        <span id="sun-icon">☀️</span>
+        <span id="moon-icon" class="hidden">🌙</span>
+    </button>
+
+    <div class="container">
+        
+         
+        <div id="landing-page" class="card center-text fade-in">
+            <div class="hero-icon">🚀</div>
+            <h1>Welcome</h1>
+            <p>Secure authentication provided by Akoere.</p>
+            
+            <div class="btn-group-vertical">
+                <button onclick="app.showPage('login')" class="btn-primary">Log In</button>
+                <button onclick="app.showPage('signup')" class="btn-secondary">Create Account</button>
+            </div>
+        </div>
+
+
+        <div id="login-page" class="card hidden fade-in">
+            <div class="header">
+                <div class="icon-circle">🔒</div>
+                <h1>Welcome Back</h1>
+                <p>Log in to access your dashboard</p>
+            </div>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="login-email" placeholder="name@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required minlength="6">
+                </div>
+                
+                <div id="login-message" class="message hidden"></div>
+
+                <button type="submit" class="btn-primary">
+                    <span class="btn-text">Sign In</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div class="footer">
+                <a href="#" onclick="app.showPage('landing')">Back</a> • Don't have an account? <a href="#" onclick="app.showPage('signup')">Sign up</a>
+            </div>
+        </div>
+
+            
+        <div id="signup-page" class="card hidden fade-in">
+            <div class="header">
+                <div class="icon-circle">👤</div>
+                <h1>Create Account</h1>
+                <p>Join us today</p>
+            </div>
+
+            <form id="signup-form">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signup-name" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="signup-email" placeholder="name@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="signup-password" placeholder="••••••••" required minlength="6">
+                </div>
+
+                <div id="signup-message" class="message hidden"></div>
+
+                <button type="submit" class="btn-primary">
+                    <span class="btn-text">Create Account</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div class="footer">
+                <a href="#" onclick="app.showPage('landing')">Back</a> • Already have an account? <a href="#" onclick="app.showPage('login')">Log in</a>
+            </div>
+        </div>
+
+        <div id="home-page" class="card hidden fade-in">
+            <div class="header-row">
+                <div class="user-info">
+                    <h2 id="user-greeting">Hello!</h2>
+                    <p class="status-badge">🟢 Online</p>
+                </div>
+                <button onclick="app.logout()" class="btn-small">Sign Out</button>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="stat-card">
+                    <span class="label">Access Level</span>
+                    <span class="value">User</span>
+                </div>
+                <div class="stat-card">
+                    <span class="label">Database</span>
+                    <span class="value">G-Sheets</span>
+                </div>
+            </div>
+
+            <div class="activity-list">
+                <h3>Recent Activity</h3>
+                <div class="activity-item">
+                    <span class="dot"></span>
+                    <p>Logged in successfully</p>
+                </div>
+                <div class="activity-item">
+                    <span class="dot gray"></span>
+                    <p>Profile loaded</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
